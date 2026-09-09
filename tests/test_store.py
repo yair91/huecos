@@ -7,6 +7,9 @@ class StoreTests(unittest.TestCase):
     def test_regular_shipping(self):
         self.assertEqual(shipping_cost(500), 99.0)
 
+    def test_free_shipping(self):
+        self.assertEqual(shipping_cost(1000), 0.0)
+
     def test_negative_subtotal_is_invalid(self):
         with self.assertRaises(ValueError):
             shipping_cost(-1)
