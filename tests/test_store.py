@@ -35,6 +35,11 @@ class StoreTests(unittest.TestCase):
     def test_loyalty_starts_at_zero(self):
         self.assertEqual(loyalty_discount(0), 0)
 
+    def test_checkout_item_limit(self):
+        self.assertFalse(can_checkout(0))
+        self.assertTrue(can_checkout(1))
+        self.assertTrue(can_checkout(50))
+        self.assertFalse(can_checkout(51))
 
 if __name__ == "__main__":
     unittest.main()
